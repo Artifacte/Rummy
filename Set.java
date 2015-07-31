@@ -4,15 +4,21 @@ import java.util.List;
 
 public class Set {
 
-	List<Integer> set= new ArrayList<>();
-        Set(List<Integer> set){
+		List<Integer> set= new ArrayList<>();
+        
+        Set(List<Integer> set) {
             this.set = set;
         }
-        public int getSize(){
+        
+        public List<Integer> getSet() {
+            return set;
+        }
+        
+        public int getSize() {
             return set.size();
         }
         
-	public boolean isNaturalSequence(){
+		public boolean isNaturalSequence() {
                 Collections.sort(set);
                 boolean ConsecutiveCards = true;
                 boolean sameCards = true;
@@ -30,9 +36,9 @@ public class Set {
                     return true;
                 }
                 return false;
-	}
+		}
         
-	private boolean areConsecutiveCards(int card1, int card2) {
+		private boolean areConsecutiveCards(int card1, int card2) {
             return (card1 - card2) == 1;
         }
         
@@ -44,7 +50,7 @@ public class Set {
             return card1 == card2;
         }
         
-	public boolean isSequence(){
+		public boolean isSequence() {
                 Collections.sort(set);
                 boolean ConsecutiveCards = true;
                 for (int i = 0; i < set.size() - 1; i++) {
@@ -53,21 +59,47 @@ public class Set {
                     }
                     if (!areConsecutiveCards(set.get(i+1), set.get(i)) || !inSameSuits(set.get(i+1), set.get(i))) {
                         ConsecutiveCards = false;
+                        break;
                     }
                 }
                 return ConsecutiveCards;
-	}
+		}	
 	
         private boolean isJokerCard(int card) {
             return card == 53;
         }
         
-	public boolean isTriplet(){
-		return true;
-	}
+        private boolean areSameRankDiffSuits(int card1, int card2) {
+            return (card1 - card2) == 13;
+        }
+        
+		public boolean isTriplet() {
+                Collections.sort(set);
+                boolean tripletCards = true;
+                for (int i = 0; i < set.size() - 1; i++) {
+                    if (isJokerCard(set.get(i)) || isJokerCard(set.get(i+1))) {
+                        break;
+                    }
+                    if (!areSameRankDiffSuits(set.get(i+1), set.get(i))) {
+                        tripletCards = false;
+                        break;
+                    }
+                }
+				return tripletCards;
+		}
 	
-	public boolean isQuadruple(){
-		return true;
-	}
-	
+		public boolean isQuadruple() {
+                Collections.sort(set);
+                boolean quadrupleCards = true;
+                for (int i = 0; i < set.size() - 1; i++) {
+                    if (isJokerCard(set.get(i)) || isJokerCard(set.get(i+1))) {
+                        break;
+                    }
+                    if (!areSameRankDiffSuits(set.get(i+1), set.get(i))) {
+                        quadrupleCards = false;
+                        break;
+                    }
+                }
+				return quadrupleCards;
+		}
 }
