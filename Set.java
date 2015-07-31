@@ -3,7 +3,12 @@ import java.util.List;
 
 public class Set {
 
-	List<Integer> set= new ArrayList<Integer>();
+	List<Integer> set= new ArrayList<>();
+        
+        public int getSize(){
+            return set.size();
+        }
+        
 	public boolean isNaturalSequence(){
 		return true;
 	}
