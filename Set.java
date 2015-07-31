@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Set {
 
-		List<Integer> set= new ArrayList<>();
+	List<Integer> set= new ArrayList<>();
         
         Set(List<Integer> set) {
             this.set = set;
@@ -18,7 +18,7 @@ public class Set {
             return set.size();
         }
         
-		public boolean isNaturalSequence() {
+	public boolean isNaturalSequence() {
                 Collections.sort(set);
                 boolean ConsecutiveCards = true;
                 boolean sameCards = true;
@@ -36,9 +36,9 @@ public class Set {
                     return true;
                 }
                 return false;
-		}
+	}
         
-		private boolean areConsecutiveCards(int card1, int card2) {
+	private boolean areConsecutiveCards(int card1, int card2) {
             return (card1 - card2) == 1;
         }
         
@@ -50,7 +50,7 @@ public class Set {
             return card1 == card2;
         }
         
-		public boolean isSequence() {
+	public boolean isSequence() {
                 Collections.sort(set);
                 boolean ConsecutiveCards = true;
                 for (int i = 0; i < set.size() - 1; i++) {
@@ -63,7 +63,7 @@ public class Set {
                     }
                 }
                 return ConsecutiveCards;
-		}	
+	}
 	
         private boolean isJokerCard(int card) {
             return card == 53;
@@ -73,7 +73,7 @@ public class Set {
             return (card1 - card2) == 13;
         }
         
-		public boolean isTriplet() {
+	public boolean isTriplet() {
                 Collections.sort(set);
                 boolean tripletCards = true;
                 for (int i = 0; i < set.size() - 1; i++) {
@@ -85,10 +85,10 @@ public class Set {
                         break;
                     }
                 }
-				return tripletCards;
-		}
+		return tripletCards;
+	}
 	
-		public boolean isQuadruple() {
+	public boolean isQuadruple() {
                 Collections.sort(set);
                 boolean quadrupleCards = true;
                 for (int i = 0; i < set.size() - 1; i++) {
@@ -100,6 +100,7 @@ public class Set {
                         break;
                     }
                 }
-				return quadrupleCards;
-		}
+		return quadrupleCards;
+	}
+	
 }
