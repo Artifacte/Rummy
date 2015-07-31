@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Rummy {
@@ -18,7 +19,24 @@ public class Rummy {
 		}
 		return findMinimumUnusedCards(cards,validSets);
 	}
-	
+
+
+
+	private List<Set> getAllPossible3LengthPermutations(List<Integer> hand,int setsize){
+		Collections.sort(hand);
+
+		List<Set> allPossibleSets= new ArrayList<Set>();
+
+		for (int i=0;i <= hand.size()-setsize;i++)
+		{
+			allPossibleSets.add(new Set(hand.subList(i,i+setsize)));
+		}
+
+
+		return allPossibleSets;
+	}
+
+
 	private List<Set> getAllPossible3LengthPermutations(List<Integer> hand){
 		return null;
 	}
