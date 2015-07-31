@@ -10,12 +10,13 @@ public class InputParser {
             System.out.println("Enter the 13 cards in hand: (e.g. 8H) ");
             String file = reader.nextLine();
             BufferedReader br = new BufferedReader(new FileReader(".\\src\\" + file));
-            List<String> cardsInHand = new ArrayList<String>() {};
+            List<String> cardsInHand = new ArrayList<>();
             for (int i = 0; i < 13; i++){
                 String s = br.readLine();
                 cardsInHand.add(s);
             }
-            System.out.println(cardsInHand.get(12));
+            Rummy rummyHand = new Rummy();
+            System.out.println(rummyHand.findMinimumDraws(cardsInHand));
             reader.close();
         }
     }    
